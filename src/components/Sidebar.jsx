@@ -10,7 +10,7 @@ function Sidebar() {
 
   const activeMenu = true
   const activeLink = 'flex items-center rounded-lg gap-5 pt-3 pl-4 pb-2.5 text-white text-md m-2'
-  const normalLink = 'flex items-center rounded-lg gap-5 pt-3 pl-4 text-gray-700'
+  const normalLink = 'flex items-center rounded-lg gap-5 pt-3 pl-4 text-gray-700 dark:hover:text-black hover:bg-light-gray m-2'
 
   return (
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
@@ -40,9 +40,10 @@ function Sidebar() {
                 to={`${link.name}`} 
                 key={link.name}
                 onClick={() => {}}
-                className={({ isActive }) => {}}
+                className={({ isActive }) => isActive ? activeLink : normalLink}
                 >
-
+                  {link.icon} 
+                  <span className='capitalize'>{link.name}</span>
                 </NavLink>
               ))}
             </div>
